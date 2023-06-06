@@ -1,0 +1,22 @@
+<div class="row mt-3">
+    <div class="col-sm-6 offset-sm-3">
+        <mat-card class="card d mb-4" *ngFor="let i of ProductArray">
+            <mat-card-header class="a">
+                <h2><strong>
+                        {{i.title}}
+                    </strong></h2>
+            </mat-card-header>
+            <mat-card-content class="b">
+                <p><strong>Desciption : </strong> {{i.description}}</p>
+                <p> <strong>Category : </strong> {{i.category}}</p>
+                <p> <strong>Image : </strong> <a href="{{i.image}}">{{i.image}}</a></p>
+            </mat-card-content>
+            <mat-card-footer class="c">
+                <div class="text-right">
+                    <button mat-raised-button  [routerLink]="['/products', i.id]" color="accent">Show More </button>
+                    <!-- <button class="btn btn-warning" [routerLink]="['/products', i.id]">Show More </button> -->
+                </div>
+            </mat-card-footer>
+        </mat-card>
+    </div>
+</div>

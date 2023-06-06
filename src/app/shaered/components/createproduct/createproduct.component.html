@@ -1,0 +1,68 @@
+<p *ngIf="!PordutcId">Create Object</p>
+<p *ngIf="PordutcId">Update Object</p>
+
+<div class="row">
+  <div class="col-sm-6 offset-sm-3 lab">
+    <form [formGroup]="productData" (ngSubmit)="Onsubmit()">
+      <div class="form-group">
+        <label for="title"><strong>Title</strong></label>
+        <input type="text" formControlName="title" id="title" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="price"><strong>price</strong></label>
+        <input type="number" formControlName="price" id="price" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="description"><strong>description</strong></label>
+        <input type="text" formControlName="description" id="description" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="category"><strong>category</strong>
+          <select name="" id="" formControlName="category" class="form-control">
+            <option [value]="i" *ngFor="let i of productCategory">
+              {{i}}
+            </option>
+          </select>
+        </label>
+      </div>
+      <div class="form-group">
+        <label for="image"><strong>Image</strong> </label>
+        <input type="text" formControlName="image" id="image" class="form-control">
+      </div>
+
+      <div formGroupName="rating">
+        <div class="form-group">
+          <label for="rate"><strong>Rate</strong></label>
+          <input type="number" formControlName="rate" id="rate" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="count"><strong>Count</strong></label>
+          <input type="number" formControlName="count" id="count" class="form-control">
+        </div>
+      </div>
+      <div class="text-right">
+        <button mat-fab color="warn" type="button" *ngIf="PordutcId"  aria-label="Example icon button with a update icon" (click)="onUpdate()">
+          <mat-icon> Update</mat-icon>
+        </button>
+        <button mat-fab color="warn" type="submit" *ngIf="!PordutcId" aria-label="Example icon button with a create  icon">
+          <mat-icon>Create </mat-icon>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+<!-- {
+    "id": 1,
+    "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+    "price": 109.95,
+    "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+    "category": "men's clothing",
+    "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+    "rating": {
+      "rate": 3.9,
+      "count": 120
+    }
+  }, -->
